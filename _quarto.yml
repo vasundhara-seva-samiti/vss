@@ -23,7 +23,7 @@ website:
           - text: "Mission and Vision"
             href: mission.qmd
           - text: "Board"
-            href: team.qmd#board
+            href: board.qmd#board
           - text: "Our Team"
             href: team.qmd#team
           - text: "Achievements"
