@@ -1456,3 +1456,5 @@
     grid-column: span 1;
   }
 }
+
+@import './responsive.css';
