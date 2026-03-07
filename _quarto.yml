@@ -18,8 +18,10 @@ website:
         href: index.qmd
       - text: "About Us"
         menu:
-          - text: "Mission and Vision"
+          - text: "About"
             href: about.qmd
+          - text: "Mission and Vision"
+            href: mission.qmd
           - text: "Board"
             href: team.qmd#board
           - text: "Our Team"
@@ -30,6 +32,8 @@ website:
             href: media-coverage.qmd
       - text: "Focus Areas"
         menu:
+          - text: "Focus Areas Overview"
+            href: focusareas.qmd
           - text: "Basic Rights"
             href: basicright.qmd
           - text: "Livelihood"
@@ -44,8 +48,12 @@ website:
         href: blog.qmd
       - text: "Career"
         href: career.qmd
-      - text: "Contact Us"
-        href: contact.qmd
+      - text: "Get Involved"
+        menu: 
+          - text: "Contact Us"
+            href: contact.qmd
+          - text: "Donate Now"
+            href: donation.qmd
    
   page-footer:
     background: "#1a5c2a"
@@ -82,7 +90,7 @@ format:
                 '<a href="tel:+919672499564" class="vss-topbar-link"><i class="bi bi-telephone-fill" aria-hidden="true"></i><span>+91 9672499564</span></a>' +
               '</div>' +
               '<div class="vss-topbar-center">' +
-                '<a href="contact.html" class="vss-topbar-donate"><i class="bi bi-heart-fill" aria-hidden="true"></i><span>Donate Now</span></a>' +
+                '<a href="donation.html" class="vss-topbar-donate"><i class="bi bi-heart-fill" aria-hidden="true"></i><span>Donate Now</span></a>' +
               '</div>' +
               '<div class="vss-topbar-right" aria-label="Social links">' +
                 '<a href="https://facebook.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +

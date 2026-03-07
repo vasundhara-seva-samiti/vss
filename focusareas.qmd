@@ -1,6 +1,6 @@
 ---
-title: ""
 format: html
+page-layout: full
 ---
 
 ```{=html}
@@ -11,42 +11,62 @@ format: html
 </div>
 
 <div class="focus-wrapper">
-  <div class="focus-section-head">
-    <h1>Focused Thematic Areas of Vasundhara Seva Samiti</h1>
-    <p>Vasundhara Seva Samiti works on key thematic areas to strengthen community systems and improve the quality of life of marginalized rural families.</p>
+  <div class="focus-intro-container">
+    <div class="focus-intro-text reveal">
+      <h2>Focused Thematic Areas of Vasundhara Seva Samiti</h1>
+      <div class="focus-subtitle-wrapper">
+        <p>Four thematic areas guide our work to strengthen community systems and improve the lives of marginalized rural families.</p>
+        <p>In western Rajasthan, Dalits and marginalized communities face a dual exclusion: they are physically distant from government services, and socially denied the rights that legally belong to them. Caste-based discrimination continues in schools and public spaces. Atrocities go unreported out of fear. Government benefits are captured by the powerful. The voice of the poor is rarely heard in administrative corridors.</p>
+      </div>
+    </div>
+    <div class="focus-intro-image reveal">
+      <img src="images/h3.jpeg" alt="Community meeting in rural Rajasthan">
+    </div>
   </div>
 
-  <div class="focus-nav" aria-label="Focus areas menu">
-    <a href="#basic-rights">Basic Rights</a>
-    <a href="#livelihood">Livelihood</a>
-    <a href="#disaster-management">Disaster Management</a>
-    <a href="#capacity-building">Capacity Building</a>
-  </div>
+  <div class="vss-theme-overview reveal" aria-label="Focus areas overview">
+    <div class="vss-theme-overview-grid">
+      <a class="vss-theme-overview-card" href="basicright.qmd">
+        <div class="vss-theme-overview-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
+        <h3>Fundamental Rights</h3>
+        <p>Organizing communities to claim rights, dignity, justice, and accountability.</p>
+      </a>
 
-  <div class="focus-grid">
-    <section class="focus-card" id="basic-rights">
-      <div class="focus-icon"><i class="bi bi-shield-check" aria-hidden="true"></i></div>
-      <h3>Basic Rights</h3>
-      <p>Supporting communities to access rights and entitlements, with awareness, outreach, and collective action.</p>
-    </section>
+      <a class="vss-theme-overview-card" href="livelihood.qmd">
+        <div class="vss-theme-overview-icon"><i class="bi bi-briefcase-fill" aria-hidden="true"></i></div>
+        <h3>Livelihoods</h3>
+        <p>Strengthening resilient incomes through skills, linkages, and local planning.</p>
+      </a>
 
-    <section class="focus-card" id="livelihood">
-      <div class="focus-icon"><i class="bi bi-tree-fill" aria-hidden="true"></i></div>
-      <h3>Livelihood</h3>
-      <p>Promoting sustainable livelihoods through skills, local planning, and connecting families with support schemes.</p>
-    </section>
+      <a class="vss-theme-overview-card" href="capacity.qmd">
+        <div class="vss-theme-overview-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div>
+        <h3>Capacity Building</h3>
+        <p>Building knowledge and leadership so communities drive their own development.</p>
+      </a>
 
-    <section class="focus-card" id="disaster-management">
-      <div class="focus-icon"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i></div>
-      <h3>Disaster Management</h3>
-      <p>Building preparedness, risk awareness, and community response capacity to reduce disaster impacts.</p>
-    </section>
-
-    <section class="focus-card" id="capacity-building">
-      <div class="focus-icon"><i class="bi bi-mortarboard-fill" aria-hidden="true"></i></div>
-      <h3>Capacity Building</h3>
-      <p>Strengthening community institutions and leaders through training, mentoring, and continuous support.</p>
-    </section>
+      <a class="vss-theme-overview-card" href="disaster.qmd">
+        <div class="vss-theme-overview-icon"><i class="bi bi-exclamation-triangle-fill" aria-hidden="true"></i></div>
+        <h3>Disaster Management</h3>
+        <p>Relief and preparedness to reduce drought impacts on vulnerable families.</p>
+      </a>
+    </div>
   </div>
 </div>
+
+<script>
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  // Trigger once on load
+  reveal();
+</script>
 ```

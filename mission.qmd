@@ -1,0 +1,10 @@
+---
+title: "Mission and Vision"
+format: html
+---
+
+## Vision
+Vision: To build an inclusive, just, and sustainable society where marginalized and rural communities are empowered, self-reliant, and able to lead dignified lives with equal access to opportunities, resources, and rights.
+
+## Mission
+To raise awareness and organize economically, socially, educationally, culturally, physically, and politically weaker sections, Dalits, women, the helpless, disabled, exploited, and deprived communities about their rights and entitlements, and to develop their own capabilities so that their intellectual and skill development can take place, enabling them to live life with self-respect.

@@ -3,3 +3,6 @@
 .Rproj.user/
 .quarto/
 _site/
+
+/.quarto/
+**/*.quarto_ipynb
