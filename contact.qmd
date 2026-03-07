@@ -2,6 +2,6 @@
 title: "Contact Us"
 ---
 
-- Address: Vasundhara Seva Samiti, Baba Ramdev Colony, Near Airtel Tower, Nagana Road, Kalyanpur, Balotra District, Rajasthan - 344026
+- Address: Vasundhara Sewa Samiti, Baba Ramdev Colony, Near Airtel Tower, Nagana Road, Kalyanpur, Balotra District, Rajasthan - 344026
 - Email: yourorg@gmail.com
 - Phone: +91 12345 67890

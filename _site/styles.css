@@ -1210,7 +1210,7 @@
 }
 
 .navbar .navbar-brand .navbar-title::after {
-  content: " Vasundhara Seva Samiti";
+  content: " Vasundhara Sewa Samiti";
   font-weight: 600;
   font-size: 1.2rem;
   margin-left: 10px;
@@ -1244,7 +1244,7 @@
 }
 
 .navbar .navbar-brand-logo::after {
-  content: "Vasundhara Seva Samiti";
+  content: "Vasundhara Sewa Samiti";
   color: #1a5c2a;
   font-weight: 700;
   font-size: 1.25rem;

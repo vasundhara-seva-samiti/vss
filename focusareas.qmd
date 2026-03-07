@@ -13,7 +13,7 @@ page-layout: full
 <div class="focus-wrapper">
   <div class="focus-intro-container">
     <div class="focus-intro-text reveal">
-      <h2>Focused Thematic Areas of Vasundhara Seva Samiti</h1>
+      <h2>Focused Thematic Areas of Vasundhara Sewa Samiti</h1>
       <div class="focus-subtitle-wrapper">
         <p>Four thematic areas guide our work to strengthen community systems and improve the lives of marginalized rural families.</p>
         <p>In western Rajasthan, Dalits and marginalized communities face a dual exclusion: they are physically distant from government services, and socially denied the rights that legally belong to them. Caste-based discrimination continues in schools and public spaces. Atrocities go unreported out of fear. Government benefits are captured by the powerful. The voice of the poor is rarely heard in administrative corridors.</p>

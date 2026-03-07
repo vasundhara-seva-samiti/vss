@@ -3,12 +3,12 @@ project:
   output-dir: _site
 
 website:
-  title: "Vasundhara Seva Samiti"
+  title: "Vasundhara Sewa Samiti"
   favicon: "images/logo.png"
 
   navbar:
     logo: "images/logo.png"
-    logo-alt: "Vasundhara Seva Samiti"
+    logo-alt: "Vasundhara Sewa Samiti"
     logo-height: 110px
     title: false
     background: "#e8f3e8"
@@ -58,11 +58,11 @@ website:
   page-footer:
     background: "#1a5c2a"
     foreground: "light"
-    left: "Copyright (c) 2026 Vasundhara Seva Samiti. All rights reserved."
+    left: "Copyright (c) 2026 Vasundhara Sewa Samiti. All rights reserved."
     center:
       - icon: geo-alt-fill
-        text: "Vasundhara Seva Samiti, Baba Ramdev Colony, Near Airtel Tower, Nagana Road, Kalyanpur, Balotra District, Rajasthan - 344026"
-        href: "https://maps.google.com/?q=Vasundhara+Seva+Samiti+Kalyanpur+Balotra"
+        text: "Vasundhara Sewa Samiti, Baba Ramdev Colony, Near Airtel Tower, Nagana Road, Kalyanpur, Balotra District, Rajasthan - 344026"
+        href: "https://maps.google.com/?q=Vasundhara+Sewa+Samiti+Kalyanpur+Balotra"
     right:
       - icon: envelope
         href: mailto:vsskb@rediffmail.com
