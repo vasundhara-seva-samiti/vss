@@ -9,7 +9,7 @@ website:
   navbar:
     logo: "images/logo.png"
     logo-alt: "Vasundhara Sewa Samiti"
-    logo-height: 110px
+    logo-height: 150px
     title: false
     background: "#e8f3e8"
     foreground: "dark"
