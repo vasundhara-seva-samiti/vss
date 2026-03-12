@@ -1205,6 +1205,72 @@
   text-align: justify; /* Keep paragraph text justified as before */
 }
 
+.about-home-actions {
+  margin-top: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-vss,
+.btn-vss-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 11px 24px;
+  border-radius: 999px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-vss {
+  color: #fff;
+  background: linear-gradient(135deg, #1f7a37, #125927);
+  border: 1px solid #125927;
+  box-shadow: 0 8px 18px rgba(18, 89, 39, 0.22);
+}
+
+.btn-vss:hover,
+.btn-vss:focus {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(18, 89, 39, 0.3);
+}
+
+.btn-vss-outline {
+  color: #1f7a37;
+  background: #fff;
+  border: 2px solid #1f7a37;
+  box-shadow: 0 6px 16px rgba(18, 89, 39, 0.12);
+}
+
+.btn-vss-outline:hover,
+.btn-vss-outline:focus {
+  color: #fff;
+  background: #1f7a37;
+  border-color: #1f7a37;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 576px) {
+  .about-home-actions {
+    gap: 10px;
+  }
+
+  .btn-vss,
+  .btn-vss-outline {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 .section-title {
   text-align: center;
   margin-bottom: 1rem;
@@ -1802,151 +1868,6 @@
 .social-hero-icon.facebook:hover { color: #1877f2; }
 .social-hero-icon.instagram:hover { color: #e4405f; }
 .social-hero-icon.linkedin:hover { color: #0a66c2; }
-
-/* Social Card Link Wrapper */
-.social-card-link {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  height: 100%;
-}
-
-.social-card-link:hover {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Social Media Section */
-.social-media-section {
-  padding: 80px 0;
-  background-color: #f8f9fa;
-}
-
-.social-card {
-  background: #fff;
-  border: 1px solid #e1e8ed; /* Twitter/X style border */
-  border-radius: 16px;
-  padding: 20px;
-  height: 100%;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-
-.social-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
-}
-
-.social-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  margin-bottom: 12px;
-}
-
-.social-avatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.social-meta {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.social-meta h6 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 700;
-  font-size: 1rem;
-  color: #0f1419;
-  margin: 0;
-  line-height: 1.2;
-}
-
-.social-meta small {
-  font-family: 'DM Sans', sans-serif;
-  color: #536471;
-  font-size: 0.9rem;
-  margin-top: 1px;
-}
-
-.social-icon-link {
-  color: #536471;
-  font-size: 1.4rem;
-  transition: color 0.2s;
-  display: flex;
-  align-items: center;
-}
-
-.social-icon-link:hover { color: #1877f2; }
-.social-icon-link.instagram:hover { color: #e4405f; }
-.social-icon-link.linkedin:hover { color: #0a66c2; }
-
-.social-body p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 1rem;
-  color: #0f1419;
-  line-height: 1.5;
-  margin-bottom: 12px;
-}
-
-.read-more-link {
-  color: #E91E63; /* Pink color as per request */
-  font-weight: 500;
-  text-decoration: none;
-  margin-left: 4px;
-}
-
-.read-more-link:hover {
-  text-decoration: underline;
-  color: #c2185b;
-}
-
-.social-media-visual {
-  width: 100%;
-  border-radius: 16px;
-  overflow: hidden;
-  margin-top: 12px;
-  border: 1px solid #cfd9de;
-}
-
-.social-media-visual img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.social-footer {
-  margin-top: 16px;
-  display: flex;
-  gap: 30px;
-  color: #536471;
-}
-
-.action-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: color 0.2s;
-}
-
-.action-item:hover {
-  color: #E91E63; /* Pink hover */
-}
-
-.action-item i {
-  font-size: 1.2rem;
-}
-
 
 /* Impact Page - Light Theme Styles (Focus Area Look) */
 .impact-page {
