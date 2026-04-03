@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Capacity Building – Vasundhara Sewa Samiti</title>
+<title>capacity – Vasundhara Sewa Samiti</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5f65087b09968f8d9f7624042aeae734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b8be95c0ef530753e2d5ddcf586a4a09.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,18 +91,98 @@ ul.task-list li input[type="checkbox"] {
           '<a href="https://youtube.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
           '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
           '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
-          '<a href="https://twitter.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
         '</div>' +
       '</div>';
     header.prepend(bar);
+
+    const navFooter = document.querySelector("footer.footer .nav-footer");
+    if (navFooter && !navFooter.classList.contains("vss-custom-footer")) {
+      // Derive extension from existing navbar links so "/" on Hostinger still resolves to .php pages.
+      let pageExt = ".php";
+      const extHintLink = document.querySelector('header a[href$=".php"], header a[href$=".php"], .navbar a[href$=".php"], .navbar a[href$=".php"]');
+      const extHintHref = extHintLink ? (extHintLink.getAttribute("href") || "") : "";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      const pageLink = function (slug) {
+        return "./" + slug + pageExt;
+      };
+
+      navFooter.classList.add("vss-custom-footer");
+      navFooter.innerHTML =
+        '<div class="vss-footer-shell">' +
+          '<div class="vss-footer-grid">' +
+            '<div class="vss-footer-col vss-footer-subscribe">' +
+              '<h3>Subscribe & Social</h3>' +
+              '<label class="visually-hidden" for="vss-footer-email">Email address</label>' +
+              '<input id="vss-footer-email" type="email" class="vss-footer-input" placeholder="Email Address" />' +
+              '<button type="button" class="vss-footer-btn">SUBSCRIBE</button>' +
+              '<div class="vss-footer-social">' +
+                '<a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
+                '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
+                '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
+                '<a href="https://www.facebook.com/share/1J129dcf94/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +
+                '<a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Work Areas</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("focusareas") + '">Focus Areas Overview</a></li>' +
+                '<li><a href="' + pageLink("basicright") + '">Rights Based Work</a></li>' +
+                '<li><a href="' + pageLink("livelihood") + '">Rural Livelihoods</a></li>' +
+                '<li><a href="' + pageLink("disaster") + '">Disaster Management</a></li>' +
+                '<li><a href="' + pageLink("capacity") + '">Capacity Building</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>About Us</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("about") + '">Overview</a></li>' +
+                '<li><a href="' + pageLink("team") + '">Our People</a></li>' +
+                '<li><a href="' + pageLink("board") + '">History & Board</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Others</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("career") + '">Careers</a></li>' +
+                '<li><a href="' + pageLink("media-coverage") + '">Resources</a></li>' +
+                '<li><a href="' + pageLink("blog") + '">Impact Stories</a></li>' +
+                '<li><a href="' + pageLink("contact") + '">Contact Us</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vss-footer-bottom">Copyright &copy; 2026 Vasundhara Sewa Samiti</div>' +
+        '</div>';
+    }
+
+    if (!document.querySelector(".vss-back-to-top")) {
+      const backTopBtn = document.createElement("button");
+      backTopBtn.type = "button";
+      backTopBtn.className = "vss-back-to-top";
+      backTopBtn.setAttribute("aria-label", "Back to top");
+      backTopBtn.innerHTML = '<i class="bi bi-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(backTopBtn);
+
+      const toggleBackTop = function () {
+        backTopBtn.classList.toggle("is-visible", window.scrollY > 260);
+      };
+
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", toggleBackTop, { passive: true });
+      toggleBackTop();
+    }
   });
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-20260320.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,6 +218,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mission and Vision</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./secretary-desk.php">
+ <span class="dropdown-text">Secretary Desk</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./board.php#board">
  <span class="dropdown-text">Board</span></a>
   </li>  
@@ -156,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-focus-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Focus Areas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-work-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Work Areas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-focus-areas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-work-areas">    
         <li>
     <a class="dropdown-item" href="./focusareas.php">
  <span class="dropdown-text">Focus Areas Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./basicright.php">
- <span class="dropdown-text">Basic Rights</span></a>
+ <span class="dropdown-text">Right Based</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./livelihood.php">
@@ -217,68 +301,83 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Capacity Building</h1>
-<p class="subtitle lead">Kshamata Vardhan — Strengthening Knowledge, Skills, and Leadership at Every Level</p>
+
+
+
+<div class="theme-hero theme-hero--capacity">
+  <div class="focus-hero-inner">
+    <h2 class="focus-hero-title anchored">Capacity Building</h2>
+  </div>
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<div class="focus-wrapper theme-detail-page">
+  <div class="focus-intro-container focus-intro-container--text-only">
+    <div class="focus-intro-text reveal">
+      <h2 class="anchored">Strengthening Knowledge, Skills, and Leadership</h2>
+      <div class="section-divider"></div>
+      <div class="focus-subtitle-wrapper">
 <p>Development work that does not invest in people’s own capacities creates dependency rather than transformation. Vasundhara Sewa Samiti is deeply committed to the principle that communities must not only be the beneficiaries of programs, but the informed, skilled, and confident leaders of their own futures. This requires sustained investment in knowledge, awareness, and practical skills — from individual community members to organized groups to field staff.</p>
 <p>The organization’s capacity building work spans multiple levels and audiences: mine workers and daily wage labourers who need to know their legal rights; women who need to understand government schemes and their entitlements; SHG members who need skills to manage finances and run small enterprises; school communities that need stronger governance; and field staff who need ongoing technical and thematic learning to deliver quality programs.</p>
-<section id="program-under-capacity-building" class="level2">
-<h2 class="anchored" data-anchor-id="program-under-capacity-building">Program Under Capacity Building</h2>
-<section id="awareness-camps-chetna-shivir" class="level3">
-<h3 class="anchored" data-anchor-id="awareness-camps-chetna-shivir">Awareness Camps — Chetna Shivir</h3>
+      </div>
+    </div>
+  </div>
+<section id="program-under-capacity-building" class="level1">
+<h1>Program Under Capacity Building</h1>
+<section id="awareness-camps-chetna-shivir" class="level2">
+<h2 class="anchored" data-anchor-id="awareness-camps-chetna-shivir">Awareness Camps — Chetna Shivir</h2>
 <p>Awareness camps are the entry point for community capacity building. Organized across villages in the working area, these camps bring community members together to learn about their fundamental rights, legal entitlements, government schemes, and collective action strategies. Resource persons from the organization facilitate sessions on topics including RTI, NREGA rights, domestic violence laws, caste discrimination protections, and health rights. The camps are designed not as lectures but as participatory processes — where community members share their own experiences, ask questions, and collectively plan how to address issues in their villages. Chetna Shivirs are especially targeted at mine workers, who are among the most exploited and least aware of their legal protections.</p>
 </section>
-<section id="training-workshops-prashikshan-karyashala" class="level3">
-<h3 class="anchored" data-anchor-id="training-workshops-prashikshan-karyashala">Training Workshops — Prashikshan / Karyashala</h3>
+<section id="training-workshops-prashikshan-karyashala" class="level2">
+<h2 class="anchored" data-anchor-id="training-workshops-prashikshan-karyashala">Training Workshops — Prashikshan / Karyashala</h2>
 <p>Beyond awareness, community members need practical skills to take action. Vasundhara Sewa Samiti organizes thematic training workshops on specific issues and skills — including self-help group management and financial literacy, union membership and collective bargaining, health and hygiene practices, public distribution system monitoring, and community issue advocacy. These workshops are conducted in accessible village locations, using experienced facilitators and participatory methods. Separate workshops are organized for SHG members, community organization leaders, para health workers, and other specific groups, ensuring that training content is relevant to participants’ real contexts and practical needs.</p>
 </section>
-<section id="staff-capacity-building-karyakarta-kshamata-vardhan" class="level3">
-<h3 class="anchored" data-anchor-id="staff-capacity-building-karyakarta-kshamata-vardhan">Staff Capacity Building — Karyakarta Kshamata Vardhan</h3>
+<section id="staff-capacity-building-karyakarta-kshamata-vardhan" class="level2">
+<h2 class="anchored" data-anchor-id="staff-capacity-building-karyakarta-kshamata-vardhan">Staff Capacity Building — Karyakarta Kshamata Vardhan</h2>
 <p>The quality of community programs depends directly on the knowledge and skills of field workers. Vasundhara Sewa Samiti invests systematically in the professional development of its field staff through external training programs, workshops, and exposure visits at district, state, and national levels. Staff members are trained on topics including health and sanitation committee strengthening, para-legal skills, RTI facilitation, domestic violence response, water harvesting, mine worker welfare law, and organizational management. This continuous learning culture ensures that the organization’s team remains knowledgeable, motivated, and technically capable of supporting complex community processes.</p>
 </section>
-<section id="school-development-shiksha-vikas-karyakram" class="level3">
-<h3 class="anchored" data-anchor-id="school-development-shiksha-vikas-karyakram">School Development — Shiksha Vikas Karyakram</h3>
+<section id="school-development-shiksha-vikas-karyakram" class="level2">
+<h2 class="anchored" data-anchor-id="school-development-shiksha-vikas-karyakram">School Development — Shiksha Vikas Karyakram</h2>
 <p>Education is a pathway out of poverty and discrimination, but children from Dalit and marginalized communities in remote areas face enormous barriers to accessing and completing quality schooling. Vasundhara Sewa Samiti runs two community schools in villages where government schools are more than 3 kilometers away — making education accessible for children in remote dhanis. The schools primarily serve SC, ST, and OBC children. In addition to running schools, the organization supports School Management Committees in government schools, helping parents become active participants in school governance, monitoring mid-day meals and teacher attendance, reviewing budgets, and planning improvements. Annual parent meetings are held to review academic results and financial accounts, ensuring transparency and accountability.</p>
 </section>
-<section id="womens-fortnight-mahila-pakhwada" class="level3">
-<h3 class="anchored" data-anchor-id="womens-fortnight-mahila-pakhwada">Women’s Fortnight — Mahila Pakhwada</h3>
+<section id="womens-fortnight-mahila-pakhwada" class="level2">
+<h2 class="anchored" data-anchor-id="womens-fortnight-mahila-pakhwada">Women’s Fortnight — Mahila Pakhwada</h2>
 <p>Women’s empowerment requires dedicated, focused spaces where women can learn about their rights, build solidarity, and take collective action against violence and discrimination. The annual Women’s Fortnight is a week-long intensive program focused on women’s legal rights, protection against domestic violence, and women’s entitlements under government schemes. The event includes awareness sessions, interactive competitions on women’s issues, cultural performances, and the felicitation of women community leaders. It creates a powerful collective experience that reinforces women’s sense of agency, dignity, and community support — and strengthens the organization’s women’s network across villages.</p>
 </section>
-<section id="childrens-events-bal-mela-and-school-activities" class="level3">
-<h3 class="anchored" data-anchor-id="childrens-events-bal-mela-and-school-activities">Children’s Events — Bal Mela and School Activities</h3>
+<section id="childrens-events-bal-mela-and-school-activities" class="level2">
+<h2 class="anchored" data-anchor-id="childrens-events-bal-mela-and-school-activities">Children’s Events — Bal Mela and School Activities</h2>
 <p>Investing in children’s development means more than classroom learning. Vasundhara Sewa Samiti organizes periodic children’s events — including an annual Children’s Fair (Bal Mela) with sports, creative competitions, cultural performances, and games — to build children’s confidence, enthusiasm for school, and community belonging. Schools supported by the organization also hold regular weekly assemblies, celebrate national festivals and the birthdays of great reformers, and organize annual educational excursions that broaden children’s horizons. These activities complement academic learning and build the whole child — intellectually, socially, and emotionally.</p>
 </section>
-<section id="public-distribution-system-awareness" class="level3">
-<h3 class="anchored" data-anchor-id="public-distribution-system-awareness">Public Distribution System Awareness</h3>
+<section id="public-distribution-system-awareness" class="level2">
+<h2 class="anchored" data-anchor-id="public-distribution-system-awareness">Public Distribution System Awareness</h2>
 <p>The Public Distribution System — which provides subsidized food through ration shops — is a critical entitlement for poor families, but its benefits are routinely siphoned off through corruption and mismanagement. The organization conducts targeted awareness sessions to educate communities about their entitlements, the government’s official schedule (the 15th to 22nd of every month in Rajasthan), and how to monitor and demand correct distribution. Communities that are informed and organized are far better positioned to hold ration dealers and local officials accountable, ensuring that food security entitlements actually reach the poorest families.</p>
+</section></section></div>
+
+<script>
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+</script>
 
 
-</section>
-</section>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5f65087b09968f8d9f7624042aeae734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b8be95c0ef530753e2d5ddcf586a4a09.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,15 +91,95 @@ ul.task-list li input[type="checkbox"] {
           '<a href="https://youtube.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
           '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
           '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
-          '<a href="https://twitter.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
         '</div>' +
       '</div>';
     header.prepend(bar);
+
+    const navFooter = document.querySelector("footer.footer .nav-footer");
+    if (navFooter && !navFooter.classList.contains("vss-custom-footer")) {
+      // Derive extension from existing navbar links so "/" on Hostinger still resolves to .php pages.
+      let pageExt = ".php";
+      const extHintLink = document.querySelector('header a[href$=".php"], header a[href$=".php"], .navbar a[href$=".php"], .navbar a[href$=".php"]');
+      const extHintHref = extHintLink ? (extHintLink.getAttribute("href") || "") : "";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      const pageLink = function (slug) {
+        return "./" + slug + pageExt;
+      };
+
+      navFooter.classList.add("vss-custom-footer");
+      navFooter.innerHTML =
+        '<div class="vss-footer-shell">' +
+          '<div class="vss-footer-grid">' +
+            '<div class="vss-footer-col vss-footer-subscribe">' +
+              '<h3>Subscribe & Social</h3>' +
+              '<label class="visually-hidden" for="vss-footer-email">Email address</label>' +
+              '<input id="vss-footer-email" type="email" class="vss-footer-input" placeholder="Email Address" />' +
+              '<button type="button" class="vss-footer-btn">SUBSCRIBE</button>' +
+              '<div class="vss-footer-social">' +
+                '<a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
+                '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
+                '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
+                '<a href="https://www.facebook.com/share/1J129dcf94/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +
+                '<a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Work Areas</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("focusareas") + '">Focus Areas Overview</a></li>' +
+                '<li><a href="' + pageLink("basicright") + '">Rights Based Work</a></li>' +
+                '<li><a href="' + pageLink("livelihood") + '">Rural Livelihoods</a></li>' +
+                '<li><a href="' + pageLink("disaster") + '">Disaster Management</a></li>' +
+                '<li><a href="' + pageLink("capacity") + '">Capacity Building</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>About Us</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("about") + '">Overview</a></li>' +
+                '<li><a href="' + pageLink("team") + '">Our People</a></li>' +
+                '<li><a href="' + pageLink("board") + '">History & Board</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Others</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("career") + '">Careers</a></li>' +
+                '<li><a href="' + pageLink("media-coverage") + '">Resources</a></li>' +
+                '<li><a href="' + pageLink("blog") + '">Impact Stories</a></li>' +
+                '<li><a href="' + pageLink("contact") + '">Contact Us</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vss-footer-bottom">Copyright &copy; 2026 Vasundhara Sewa Samiti</div>' +
+        '</div>';
+    }
+
+    if (!document.querySelector(".vss-back-to-top")) {
+      const backTopBtn = document.createElement("button");
+      backTopBtn.type = "button";
+      backTopBtn.className = "vss-back-to-top";
+      backTopBtn.setAttribute("aria-label", "Back to top");
+      backTopBtn.innerHTML = '<i class="bi bi-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(backTopBtn);
+
+      const toggleBackTop = function () {
+        backTopBtn.classList.toggle("is-visible", window.scrollY > 260);
+      };
+
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", toggleBackTop, { passive: true });
+      toggleBackTop();
+    }
   });
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-20260320.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -138,6 +218,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mission and Vision</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./secretary-desk.php">
+ <span class="dropdown-text">Secretary Desk</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./board.php#board">
  <span class="dropdown-text">Board</span></a>
   </li>  
@@ -156,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-focus-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Focus Areas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-work-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Work Areas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-focus-areas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-work-areas">    
         <li>
     <a class="dropdown-item" href="./focusareas.php">
  <span class="dropdown-text">Focus Areas Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./basicright.php">
- <span class="dropdown-text">Basic Rights</span></a>
+ <span class="dropdown-text">Right Based</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./livelihood.php">
@@ -238,47 +322,71 @@ ul.task-list li input[type="checkbox"] {
     <div class="about-intro-text reveal">
       <h3 class="anchored">Vasundhara Sewa Samiti</h3>
       <div class="focus-subtitle-wrapper">
-        <p><strong>Registered under the Rajasthan State Cooperative/Societies Act, 1958, Vasundhara Sewa Samiti is a non-governmental, non-profit organization working in the rural and drought-prone regions of Balotra district, Rajasthan.</strong></p>
-        <p>Founded with the objective of addressing deep-rooted socio-economic challenges, Vasundhara Sewa Samiti works to empower women, youth, children, scheduled castes, and economically weaker sections by strengthening their capacities, awareness, and access to rights and resources. The organization believes that sustainable development is possible only when communities are enabled to take charge of their own lives and development processes.</p>
-        <p>Guided by participatory and rights-based approaches, the Samiti implements need-based and locally relevant development interventions in the areas of livelihood promotion, education, water conservation and sustainable water resource management, disaster risk reduction, institutional development, community capacity building, environmental awareness, and access to government welfare schemes. The organization actively collaborates with government departments, local self-governments, community-based organizations, and civil society partners to ensure inclusive and long-term impact.</p>
-        <p>Vasundhara Sewa Samiti strives to improve the quality of life of rural communities by promoting sustainable livelihoods, water security, social justice, and informed citizenship. By encouraging community-led water conservation practices, rainwater harvesting, and efficient water use, and by combining traditional community knowledge with practical development strategies, the organization contributes towards inclusive growth and aligns its work with national priorities and the Sustainable Development Goals (SDGs).</p>
+        <p><strong>Vasundhara Sewa Samiti (VSS), Kalyanpur is a voluntary non-profit organization registered under the Rajasthan Societies Registration Act, 1958. The organization works in the remote desert region of western Rajasthan, particularly in Kalyanpur block of Balotra district, which was earlier part of the Barmer district located near the India–Pakistan border. The region lies in the Thar Desert belt, where communities face difficult environmental and socio-economic conditions.</strong></p>
+        <p>This desert region is characterized by sandy terrain, extreme temperatures, irregular rainfall, frequent droughts, and water scarcity, which significantly affect the livelihoods of rural communities. People in these areas largely depend on rain-fed agriculture, livestock rearing, horticulture activities, and traditional water systems for their survival. Traditional water sources such as ponds, rainwater harvesting structures, talab, tanke, nadi, beri, and rural water tanks play an important role in meeting water needs in desert villages.</p>
+        <p>Due to these challenges, rural households often experience poverty, seasonal migration, and limited access to education, healthcare, and basic infrastructure. These conditions particularly affect Scheduled Castes (SC), Scheduled Tribes (ST), women, landless families, persons with disabilities, and other marginalized groups living in remote villages.</p>
+        <p>Established in 1996–97, Vasundhara Sewa Samiti works to strengthen rural communities through participatory and community-led development approaches. The organization focuses on community mobilization, awareness building, and promotion of fundamental rights, encouraging people to actively participate in development processes and access their entitlements. The organization also promotes community participation in Panchayati Raj Institutions, strengthening local governance and grassroots democracy.</p>
+        <p>The organization focuses on key development areas such as rights-based community development, promotion of sustainable livelihoods, horticulture development, conservation of traditional water resources, health and environmental awareness, climate change adaptation, disaster response in drought-prone areas, and capacity building of rural communities.</p>
+        <p>Vasundhara Sewa Samiti also promotes women’s empowerment and self-reliance by supporting livelihood activities such as making soap (saboon), detergent (surf), and other household products. In times of drought and scarcity, the organization has also supported rural families by distributing fodder (chaara) for livestock such as goats and camels, helping communities sustain their traditional livelihoods.</p>
+        <p>Over the years, the organization has continued to empower rural communities in the Thar Desert region of Rajasthan, helping them build resilience, improve socio-economic conditions, protect natural resources, and participate actively in local governance and community development initiatives.</p>
       </div>
-    </div>
-    <div class="about-intro-image reveal">
-      <img src="images/As.jpg" alt="Vasundhara Sewa Samiti Team">
     </div>
   </div>
 
+  <section class="about-gallery reveal" aria-label="About page image cards">
+    <div class="about-gallery-grid">
+      <article class="about-gallery-card">
+        <img src="images/cb1.jpg" alt="Community meeting with local participants">
+        <div class="about-gallery-caption">
+          <h4 class="anchored">Community Meetings</h4>
+          <p>Listening first and planning with people on the ground.</p>
         </div>
-        <div class="col-md-6 mb-4">
-          <h3 style="color: #1a5c2a; font-weight: 700; margin-bottom: 20px;" class="anchored">Legal Status</h3>
-          <div style="background: #fff; padding: 20px; border-left: 4px solid #1a5c2a; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
-            <p style="margin-bottom: 10px;"><strong>Registration Act:</strong> Rajasthan State Cooperative Societies Act, 1958 (Section 28)</p>
-            <p style="margin-bottom: 10px;"><strong>Registration Number:</strong> 13</p>
-            <p style="margin-bottom: 0;"><strong>Registered Since:</strong> 12 June 1996–1997</p>
-          </div>
+      </article>
+      <article class="about-gallery-card">
+        <img src="images/cb2.jpg" alt="Field activity carried out by the organization">
+        <div class="about-gallery-caption">
+          <h4 class="anchored">Field Action</h4>
+          <p>Programs designed around practical local needs.</p>
         </div>
-      </main></div>
-    
-  
+      </article>
+      <article class="about-gallery-card">
+        <img src="images/cb3.jpg" alt="Participants during a development initiative">
+        <div class="about-gallery-caption">
+          <h4 class="anchored">Shared Progress</h4>
+          <p>Building confidence, rights awareness, and community ownership.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="reveal" style="max-width: 1200px; margin: 0 auto 56px; padding: 0 18px;">
+    <div style="max-width: 640px;">
+      <h3 style="color: #1a5c2a; font-weight: 700; margin-bottom: 20px;" class="anchored">Legal Status</h3>
+      <div style="background: #fff; padding: 20px; border-left: 4px solid #1a5c2a; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <p style="margin-bottom: 10px;"><strong>Registration Act:</strong> Rajasthan State Cooperative Societies Act, 1958 (Section 28)</p>
+        <p style="margin-bottom: 10px;"><strong>Registration Number:</strong> 13</p>
+        <p style="margin-bottom: 0;"><strong>Registered Since:</strong> 12 June 1996–1997</p>
+      </div>
+    </div>
+  </section>
 
   <div class="vss-theme-overview reveal" style="margin-top: 60px;">
-    <h3 style="text-align: center; font-weight: 800; color: #2c3e50; margin-bottom: 40px; font-size: 2rem;">Our Principles</h3>
+    <h3 style="text-align: center; font-weight: 800; color: #2c3e50; margin-bottom: 40px; font-size: 2rem;" class="anchored">Our Principles</h3>
     <div class="about-principles-list">
       <div class="about-principles-item">
-        <h4>Community Participation</h4>
+        <h4 class="anchored">Community Participation</h4>
         <p>Ensuring local leadership and active involvement in all stages of development.</p>
       </div>
       <div class="about-principles-item">
-        <h4>Equity &amp; Inclusion</h4>
+        <h4 class="anchored">Equity &amp; Inclusion</h4>
         <p>Promoting non-discrimination and equal opportunities for all sections of society.</p>
       </div>
       <div class="about-principles-item">
-        <h4>Rights-Based Approach</h4>
+        <h4 class="anchored">Rights-Based Approach</h4>
         <p>Focusing on rights and need-based planning to empower the marginalized.</p>
       </div>
       <div class="about-principles-item">
-        <h4>Transparency</h4>
+        <h4 class="anchored">Transparency</h4>
         <p>Maintaining accountability, partnership, and sustainability in all actions.</p>
       </div>
     </div>
@@ -286,7 +394,7 @@ ul.task-list li input[type="checkbox"] {
 
   <div class="vss-focus-band reveal" style="margin-top: 60px; padding-bottom: 60px;">
     <div class="vss-focus-band-inner">
-      <h3 style="text-align: center; font-weight: 800; color: #2c3e50; margin-bottom: 40px; font-size: 2rem;">Our Objectives</h3>
+      <h3 style="text-align: center; font-weight: 800; color: #2c3e50; margin-bottom: 40px; font-size: 2rem;" class="anchored">Our Objectives</h3>
       <div class="row">
         <div class="col-md-6 mb-3">
           <div class="d-flex align-items-start gap-3 p-3" style="background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); height: 100%;">
@@ -321,7 +429,7 @@ ul.task-list li input[type="checkbox"] {
       </div>
     </div>
   </div>
-
+</div>
 
 <script>
   function reveal() {
@@ -342,7 +450,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
- <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -743,7 +851,7 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script>
- <!-- /content -->
+</div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">

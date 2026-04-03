@@ -1,0 +1,14 @@
+---
+title: "Our Team"
+---
+
+## Team
+
+The team consists of field facilitators, thematic coordinators, and management staff working directly with village communities, community-based institutions, and local governance bodies.
+
+Add team details here:
+
+- Name - Designation
+- Name - Designation
+- Name - Designation
+

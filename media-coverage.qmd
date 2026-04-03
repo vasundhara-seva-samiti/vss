@@ -1,0 +1,13 @@
+---
+title: "Media Coverage"
+---
+
+## Media Coverage
+
+Add links to newspaper reports, TV coverage, digital stories, and public recognition of organizational work.
+
+Example format:
+
+- [Article title](#)
+- [Press release title](#)
+- [Video coverage](#)

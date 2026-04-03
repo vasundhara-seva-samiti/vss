@@ -1,0 +1,98 @@
+---
+title: ""
+page-layout: full
+format: html
+---
+
+```{=html}
+<div class="theme-hero theme-hero--disaster">
+  <div class="focus-hero-inner">
+    <h2 class="focus-hero-title">Disaster Management</h2>
+  </div>
+</div>
+
+<div class="focus-wrapper theme-detail-page">
+  <div class="focus-intro-container focus-intro-container--text-only">
+    <div class="focus-intro-text reveal">
+      <h2>Building Community Resilience to Drought, Disease, and Crisis</h2>
+      <div class="section-divider"></div>
+      <div class="focus-subtitle-wrapper">
+```
+
+Western Rajasthan experiences severe drought almost every three years. The Thar Desert's sparse and erratic rainfall means that communities are never far from the next livelihood crisis — with crops failing, water sources drying up, livestock dying of thirst and hunger, and families forced into distress migration. Following drought conditions, outbreaks of malaria and other diseases add another layer of suffering to communities already weakened by food and water insecurity.
+
+For the poorest and most marginalized communities — Dalits, women, mine workers, and tribal families — these disasters are not temporary disruptions but existential threats that can undo years of fragile livelihood progress in a single season. Vasundhara Sewa Samiti's disaster management work is built on two pillars: immediate, targeted relief for the most vulnerable during crises; and sustained community preparedness and resilience building so that communities are better able to withstand and recover from shocks. Every aspect of disaster response is community-led and community-monitored.
+
+```{=html}
+      </div>
+    </div>
+  </div>
+```
+
+# Programs Under Disaster Management
+
+## Drought Relief — Akal Rahat Karya
+When drought strikes, the most vulnerable families — those without savings, assets, or social networks to fall back on — face immediate survival crises. Vasundhara Sewa Samiti provides targeted relief support to the worst-affected households, including goat fodder distribution (to prevent the loss of the 'cow of the poor') and water supply support to households and dhanis where water sources have completely dried up. Relief is provided through multiple rounds during the drought period, with careful targeting to ensure it reaches the genuinely needy. The organization also conducts community feeding programs and links families to government emergency relief entitlements they would otherwise miss.
+
+## Malaria Awareness Campaign — Maleria Jagrukta Abhiyan
+After drought, stagnant water and disrupted health systems create conditions for malaria outbreaks in the working area. Communities — especially children, pregnant women, and economically active adults — are at serious risk. Vasundhara Sewa Samiti conducts malaria awareness campaigns through two innovative channels: community puppetry programs (Kathputli Karyakram) that use storytelling and performance to communicate prevention messages in an accessible and engaging way; and utility programs that combine blood testing, medicine distribution (Tempos tablets), and vaccination at village level. Both approaches prioritize reaching women, children, and isolated communities that formal health systems miss.
+
+## Drought Relief Monitoring — Akal Rahat Karya Monitoring
+Government drought relief programs — covering fodder, water, employment, food, and anganwadi services — are routinely plagued by corruption, exclusion of the most needy, and poor monitoring. Vasundhara Sewa Samiti runs a community-based monitoring campaign during drought periods, training community volunteers to observe and document the implementation of relief programs in their villages and report discrepancies. Issues identified through monitoring are raised formally with gram panchayats, panchayat samitis, and district officials. This program converts passive recipients of relief into active monitors of public accountability, ensuring that drought relief benefits actually reach the last person.
+
+## Drought Relief Work Monitoring Format
+Under the campaign, formats were filled during the monthly meetings of the Village Development Committees to monitor the works being carried out by the government in the selected villages.
+
+## Fodder (Chaara)
+Considering the fodder shortage in the villages, livestock camps and fodder depots were established. For this, continuous coordination was maintained with the government, and applications were submitted by the Village Development Committees to highlight the issue. As a result, livestock camps and fodder depots were approved in Bagawas, Meghwas, Simarkhiya, and Mandli. fodder is available for animals, the organization conceptualized the idea of promoting horticulture in the selected project areas.
+
+## Water
+During drought conditions, water becomes the primary concern. The government had directed that water should be made available to all families. However, this arrangement was not reaching remote hamlets. To address this issue, discussions were held with the Gram Panchayat, and advocacy efforts were carried out with community participation. As a result, drinking water was made available in all selected villages.
+
+## Employment
+To ensure employment for all, continuous support was provided to a total of 2,684 job card holder families in the selected project area. Assistance was given in filling applications, and support was extended to 785 families in securing drought relief work after completing 100 days of employment.
+
+## Anganwadi
+During drought conditions, it is essential that all pregnant women, children, and adolescent girls receive proper nutrition on time. Efforts were made to connect 330 children, 71 pregnant women, and 60 lactating mothers with Anganwadi services.
+
+## Public Distribution System and Mid-Day Meal
+Monitoring was carried out to ensure that all families received food grains on time, that Public Distribution System (PDS) shops functioned regularly, and that school children received timely and quality mid-day meals.
+
+## Contact with Vulnerable Families and Submission of Applications Regarding Their Issues
+Continuous contact was maintained with the vulnerable families identified by the government, and support was provided to help them access government assistance. Issues arising at the village level were taken up through advocacy efforts and communicated to the administration. A total of 15 applications were submitted.
+
+## Drought Assistance Program (DRR)
+During drought conditions, under the Disaster Risk Reduction (DRR) program, in four selected villages, vulnerable families were identified through wealth ranking conducted by the Village Development Committees. It was decided to provide three types of support to these families.
+The selected vulnerable families were provided with one water tanker per family per month for three months, along with Saras livestock feed (dana) for goats. Additionally, for families that did not have any facility to store water, further support measures were planned.
+
+## Distribution of Drought Relief Materials (LAY)
+In the selected project area, with the support of the Village Development Committee, it was decided to provide bajra (pearl millet) and korma (at subsidized rates) to vulnerable families during drought conditions, including persons with disabilities, widows, elderly individuals, TB patients, and other destitute households.
+
+## Community Disaster Preparedness — Samudaya Ki Kshamata Vardhan
+Prevention and preparedness are more effective than emergency response. Alongside Gram Vikas Samitis, the organization forms specialized task forces for drought, health emergencies, and technical response. These task forces hold monthly meetings, receive thematic training, and develop community-level volunteer networks (swayam sevaks) who are ready to act when disaster strikes. The goal is a community that has the knowledge, skills, and organized social infrastructure to respond to drought, disease outbreaks, and other emergencies before outside help arrives — reducing dependence on government response that is often delayed and inadequate in remote areas.
+
+## Technical Promotion — Demo Construction
+Low-cost, locally sustainable construction using ferro-cement technology offers drought-affected communities a way to build durable, affordable structures using local materials. Vasundhara Sewa Samiti demonstrates this technology by constructing model buildings and huts in selected villages, training local artisans in ferro-cement tile making, brick making, and dome construction. The Karigar Sangathan (Artisan Collective) plays a central role in these demonstrations. Community members contribute through shramdaan (voluntary labour), building local ownership of the construction. These demo projects serve as practical training grounds and as working examples that communities can replicate independently for low-cost housing and community buildings.
+
+## Risk Transfer through Insurance — Jokhim Hastantaran
+Even with the best livelihood and preparedness programs, individual families face risks that no amount of community organization can fully prevent — illness, accidents, fires, livestock deaths, and crop failures can devastate a family's finances in a single event. The poorest families, lacking savings or assets, are forced to borrow from moneylenders at usurious rates or pledge their remaining assets for medical care. Vasundhara Sewa Samiti addresses this vulnerability by connecting community members to formal insurance products through the Life Insurance Corporation of India and Seva Vimo. By facilitating insurance enrollment for vulnerable individuals and families, the organization ensures that a financial safety net exists — so that one health emergency or accident does not send a family back into permanent poverty.
+
+```{=html}
+</div>
+
+<script>
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+</script>
+```

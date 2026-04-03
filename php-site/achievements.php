@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5f65087b09968f8d9f7624042aeae734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b8be95c0ef530753e2d5ddcf586a4a09.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,15 +91,95 @@ ul.task-list li input[type="checkbox"] {
           '<a href="https://youtube.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
           '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
           '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
-          '<a href="https://twitter.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
         '</div>' +
       '</div>';
     header.prepend(bar);
+
+    const navFooter = document.querySelector("footer.footer .nav-footer");
+    if (navFooter && !navFooter.classList.contains("vss-custom-footer")) {
+      // Derive extension from existing navbar links so "/" on Hostinger still resolves to .php pages.
+      let pageExt = ".php";
+      const extHintLink = document.querySelector('header a[href$=".php"], header a[href$=".php"], .navbar a[href$=".php"], .navbar a[href$=".php"]');
+      const extHintHref = extHintLink ? (extHintLink.getAttribute("href") || "") : "";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      const pageLink = function (slug) {
+        return "./" + slug + pageExt;
+      };
+
+      navFooter.classList.add("vss-custom-footer");
+      navFooter.innerHTML =
+        '<div class="vss-footer-shell">' +
+          '<div class="vss-footer-grid">' +
+            '<div class="vss-footer-col vss-footer-subscribe">' +
+              '<h3>Subscribe & Social</h3>' +
+              '<label class="visually-hidden" for="vss-footer-email">Email address</label>' +
+              '<input id="vss-footer-email" type="email" class="vss-footer-input" placeholder="Email Address" />' +
+              '<button type="button" class="vss-footer-btn">SUBSCRIBE</button>' +
+              '<div class="vss-footer-social">' +
+                '<a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
+                '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
+                '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
+                '<a href="https://www.facebook.com/share/1J129dcf94/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +
+                '<a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Work Areas</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("focusareas") + '">Focus Areas Overview</a></li>' +
+                '<li><a href="' + pageLink("basicright") + '">Rights Based Work</a></li>' +
+                '<li><a href="' + pageLink("livelihood") + '">Rural Livelihoods</a></li>' +
+                '<li><a href="' + pageLink("disaster") + '">Disaster Management</a></li>' +
+                '<li><a href="' + pageLink("capacity") + '">Capacity Building</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>About Us</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("about") + '">Overview</a></li>' +
+                '<li><a href="' + pageLink("team") + '">Our People</a></li>' +
+                '<li><a href="' + pageLink("board") + '">History & Board</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Others</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("career") + '">Careers</a></li>' +
+                '<li><a href="' + pageLink("media-coverage") + '">Resources</a></li>' +
+                '<li><a href="' + pageLink("blog") + '">Impact Stories</a></li>' +
+                '<li><a href="' + pageLink("contact") + '">Contact Us</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vss-footer-bottom">Copyright &copy; 2026 Vasundhara Sewa Samiti</div>' +
+        '</div>';
+    }
+
+    if (!document.querySelector(".vss-back-to-top")) {
+      const backTopBtn = document.createElement("button");
+      backTopBtn.type = "button";
+      backTopBtn.className = "vss-back-to-top";
+      backTopBtn.setAttribute("aria-label", "Back to top");
+      backTopBtn.innerHTML = '<i class="bi bi-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(backTopBtn);
+
+      const toggleBackTop = function () {
+        backTopBtn.classList.toggle("is-visible", window.scrollY > 260);
+      };
+
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", toggleBackTop, { passive: true });
+      toggleBackTop();
+    }
   });
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-20260320.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -138,6 +218,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mission and Vision</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./secretary-desk.php">
+ <span class="dropdown-text">Secretary Desk</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./board.php#board">
  <span class="dropdown-text">Board</span></a>
   </li>  
@@ -156,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-focus-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Focus Areas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-work-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Work Areas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-focus-areas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-work-areas">    
         <li>
     <a class="dropdown-item" href="./focusareas.php">
  <span class="dropdown-text">Focus Areas Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./basicright.php">
- <span class="dropdown-text">Basic Rights</span></a>
+ <span class="dropdown-text">Right Based</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./livelihood.php">
@@ -288,19 +372,19 @@ ul.task-list li input[type="checkbox"] {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     const achievements = [
-      { id: 1, number: "1,200", unit: "Bigha", description: "Agricultural land freed from encroachment for the Dalit community", icon: "🌾", color: "#e86c3a" },
-      { id: 2, number: "200", unit: "Families", description: "Deprived families assisted in getting residential land titles (Pattas)", icon: "🏠", color: "#3a7de8" },
-      { id: 3, number: "1,703", unit: "People", description: "Received justice under the Atrocities Prevention Act", icon: "⚖️", color: "#6c3ae8" },
-      { id: 4, number: "5,000", unit: "Applicants", description: "People helped to apply for NREGA work", icon: "📋", color: "#3ab87d" },
-      { id: 5, number: "427", unit: "Volunteers", description: "Trained volunteers actively doing advocacy work at village level", icon: "🤝", color: "#e8a63a" },
+      { id: 1, number: "1,200", unit: "Bigha", description: "Agricultural land freed from encroachment for the Dalit community", icon: "🌾", color: "#e86c3a", image: "images/bigha.jpeg", imageAlt: "Agricultural Land Freed" },
+      { id: 2, number: "200", unit: "Families", description: "Deprived families assisted in getting residential land titles (Pattas)", icon: "🏠", color: "#3a7de8", image: "images/vulne.jpeg", imageAlt: "Residential Land Titles" },
+      { id: 3, number: "1,703", unit: "People", description: "Received justice under the Atrocities Prevention Act", icon: "⚖️", color: "#6c3ae8", image: "images/any.jpg", imageAlt: "Justice under Atrocities Act" },
+      { id: 4, number: "5,000", unit: "Applicants", description: "People helped to apply for NREGA work", icon: "📋", color: "#3ab87d", image: "images/narega.jpeg", imageAlt: "NREGA Work Applications" },
+      { id: 5, number: "427", unit: "Volunteers", description: "Trained volunteers actively doing advocacy work at village level", icon: "🤝", color: "#e8a63a", image: "images/cap.jpeg", imageAlt: "Trained Community Volunteers" },
     ];
 
     const impacts = [
-      { id: 1, title: "Reduced Discrimination", description: "Increased access of Dalit community to public services and public places; discrimination significantly reduced.", icon: "✊", color: "#e84040" },
-      { id: 2, title: "Government Inclusion", description: "Deprived communities gained access to government departments; many became active members of government committees.", icon: "🏛️", color: "#3a7de8" },
-      { id: 3, title: "Media Recognition", description: "Recognition and visibility increased in both electronic and print media.", icon: "📺", color: "#8e3ae8" },
-      { id: 4, title: "Women Empowerment", description: "Gender discrimination reduced; women's participation in organizations increased and their self-confidence grew.", icon: "👩", color: "#e83aaa" },
-      { id: 5, title: "Democratic Participation", description: "210 people elected as public representatives in the three-tier Panchayati Raj system.", icon: "🗳️", color: "#3ab87d" },
+      { id: 1, title: "Reduced Discrimination", description: "Increased access of Dalit community to public services and public places; discrimination significantly reduced.", icon: "✊", color: "#e84040", image: "images/soc.jpg", imageAlt: "Community Access" },
+      { id: 2, title: "Government Inclusion", description: "Deprived communities gained access to government departments; many became active members of government committees.", icon: "🏛️", color: "#3a7de8", image: "images/off.jpeg", imageAlt: "Government Inclusion" },
+      { id: 3, title: "Media Recognition", description: "Recognition and visibility increased in both electronic and print media.", icon: "📺", color: "#8e3ae8", image: "images/slide3.jpg", imageAlt: "Media Recognition" },
+      { id: 4, title: "Women Empowerment", description: "Gender discrimination reduced; women's participation in organizations increased and their self-confidence grew.", icon: "👩", color: "#e83aaa", image: "images/wom.jpeg", imageAlt: "Women Empowerment" },
+      { id: 5, title: "Democratic Participation", description: "210 people elected as public representatives in the three-tier Panchayati Raj system.", icon: "🗳️", color: "#3ab87d", image: "images/off.jpeg", imageAlt: "Democratic Participation" },
     ];
 
     // CountUp Animation Function
@@ -333,8 +417,7 @@ ul.task-list li input[type="checkbox"] {
       
       card.innerHTML = `
         <div class="achiev-image-placeholder" style="width: 100%; height: 160px; background: ${item.color}08; border-bottom: 1px solid ${item.color}20; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 8px 8px 0 0;">
-          <div style="font-size: 36px; opacity: 0.5;">📷</div>
-          <span style="color: ${item.color}; font-size: 11px; font-family: monospace; letter-spacing: 2px; opacity: 0.7; margin-top: 5px;">ADD IMAGE HERE</span>
+          <img src="${item.image}" alt="${item.imageAlt}" style="width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 8px 8px 0 0;">
         </div>
 
         <div class="achiev-icon-box" style="background: ${item.color}15; color: ${item.color}; margin-top: -35px; position: relative; border: 4px solid #fff;">
@@ -373,8 +456,7 @@ ul.task-list li input[type="checkbox"] {
 
       card.innerHTML = `
         <div class="impact-image-placeholder" style="background: ${item.color}08; border-bottom: 1px solid ${item.color}20;">
-          <div style="font-size: 48px; opacity: 0.5;">📷</div>
-          <span style="color: ${item.color}; font-size: 12px; font-family: monospace; letter-spacing: 2px; opacity: 0.7;">ADD IMAGE HERE</span>
+          <img src="${item.image}" alt="${item.imageAlt}" style="width: 100%; height: 100%; object-fit: cover; display: block;">
           <div class="impact-icon-badge" style="color: ${item.color};">
             ${item.icon}
           </div>

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Right Based – Vasundhara Sewa Samiti</title>
+<title>basicright – Vasundhara Sewa Samiti</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5f65087b09968f8d9f7624042aeae734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b8be95c0ef530753e2d5ddcf586a4a09.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,18 +91,98 @@ ul.task-list li input[type="checkbox"] {
           '<a href="https://youtube.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
           '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
           '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
-          '<a href="https://twitter.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
         '</div>' +
       '</div>';
     header.prepend(bar);
+
+    const navFooter = document.querySelector("footer.footer .nav-footer");
+    if (navFooter && !navFooter.classList.contains("vss-custom-footer")) {
+      // Derive extension from existing navbar links so "/" on Hostinger still resolves to .php pages.
+      let pageExt = ".php";
+      const extHintLink = document.querySelector('header a[href$=".php"], header a[href$=".html"], .navbar a[href$=".php"], .navbar a[href$=".html"]');
+      const extHintHref = extHintLink ? (extHintLink.getAttribute("href") || "") : "";
+      if (extHintHref.includes(".html")) pageExt = ".html";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      const pageLink = function (slug) {
+        return "./" + slug + pageExt;
+      };
+
+      navFooter.classList.add("vss-custom-footer");
+      navFooter.innerHTML =
+        '<div class="vss-footer-shell">' +
+          '<div class="vss-footer-grid">' +
+            '<div class="vss-footer-col vss-footer-subscribe">' +
+              '<h3>Subscribe & Social</h3>' +
+              '<label class="visually-hidden" for="vss-footer-email">Email address</label>' +
+              '<input id="vss-footer-email" type="email" class="vss-footer-input" placeholder="Email Address" />' +
+              '<button type="button" class="vss-footer-btn">SUBSCRIBE</button>' +
+              '<div class="vss-footer-social">' +
+                '<a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
+                '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
+                '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
+                '<a href="https://www.facebook.com/share/1J129dcf94/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +
+                '<a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Work Areas</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("focusareas") + '">Focus Areas Overview</a></li>' +
+                '<li><a href="' + pageLink("basicright") + '">Rights Based Work</a></li>' +
+                '<li><a href="' + pageLink("livelihood") + '">Rural Livelihoods</a></li>' +
+                '<li><a href="' + pageLink("disaster") + '">Disaster Management</a></li>' +
+                '<li><a href="' + pageLink("capacity") + '">Capacity Building</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>About Us</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("about") + '">Overview</a></li>' +
+                '<li><a href="' + pageLink("team") + '">Our People</a></li>' +
+                '<li><a href="' + pageLink("board") + '">History & Board</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Others</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("career") + '">Careers</a></li>' +
+                '<li><a href="' + pageLink("media-coverage") + '">Resources</a></li>' +
+                '<li><a href="' + pageLink("blog") + '">Impact Stories</a></li>' +
+                '<li><a href="' + pageLink("contact") + '">Contact Us</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vss-footer-bottom">Copyright &copy; 2026 Vasundhara Sewa Samiti</div>' +
+        '</div>';
+    }
+
+    if (!document.querySelector(".vss-back-to-top")) {
+      const backTopBtn = document.createElement("button");
+      backTopBtn.type = "button";
+      backTopBtn.className = "vss-back-to-top";
+      backTopBtn.setAttribute("aria-label", "Back to top");
+      backTopBtn.innerHTML = '<i class="bi bi-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(backTopBtn);
+
+      const toggleBackTop = function () {
+        backTopBtn.classList.toggle("is-visible", window.scrollY > 260);
+      };
+
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", toggleBackTop, { passive: true });
+      toggleBackTop();
+    }
   });
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-20260320.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -138,6 +218,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mission and Vision</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./secretary-desk.html">
+ <span class="dropdown-text">Secretary Desk</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./board.html#board">
  <span class="dropdown-text">Board</span></a>
   </li>  
@@ -156,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-focus-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Focus Areas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-work-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Work Areas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-focus-areas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-work-areas">    
         <li>
     <a class="dropdown-item" href="./focusareas.html">
  <span class="dropdown-text">Focus Areas Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./basicright.html">
- <span class="dropdown-text">Basic Rights</span></a>
+ <span class="dropdown-text">Right Based</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./livelihood.html">
@@ -217,35 +301,33 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Right Based</h1>
-<p class="subtitle lead">Maulik Adhikar — Organizing Communities for Justice, Dignity, and Accountability</p>
+
+
+
+<div class="theme-hero theme-hero--rights">
+  <div class="focus-hero-inner">
+    <h2 class="focus-hero-title anchored">Right Based</h2>
+  </div>
 </div>
 
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
+<div class="focus-wrapper theme-detail-page">
+  <div class="focus-intro-container focus-intro-container--text-only">
+    <div class="focus-intro-text reveal">
+      <h2 class="anchored">Rights, Justice, and Community Accountability</h2>
+      <div class="section-divider"></div>
+      <div class="focus-subtitle-wrapper">
 <p>In western Rajasthan, Dalits and marginalized communities face a dual exclusion: they are physically distant from government services, and socially denied the rights that legally belong to them. Caste-based discrimination continues in schools and public spaces. Atrocities go unreported out of fear. Government benefits are captured by the powerful. The voice of the poor is rarely heard in administrative corridors.</p>
 <p>Vasundhara Sewa Samiti’s work on fundamental rights is built on the understanding that rights are not given — they are claimed. Through collective organizing, legal support, democratic advocacy, and strategic use of information tools, the organization works to shift the power balance so that the most marginalized communities can access justice, dignity, and accountability.</p>
+      </div>
+    </div>
+  </div>
 <section id="programs-under-right-based" class="level1">
 <h1>Programs Under Right Based</h1>
 <section id="community-organization-building-sangathan-nirman" class="level2">
@@ -275,10 +357,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="letters-to-administration-prashasan-ko-patra" class="level2">
 <h2 class="anchored" data-anchor-id="letters-to-administration-prashasan-ko-patra">Letters to Administration — Prashasan Ko Patra</h2>
 <p>Local problems related to drinking water, employment, roads, and welfare schemes are systematically taken up with the concerned government departments through formal letters and representations. Community members, supported by the organization, write to Jaldaya Vibhag for water supply, to Sub-Block Officers for NREGA employment, to MLAs for road construction, and to Social Justice departments for scheme enrollment. Every letter is followed up until a response and action are obtained. This program embeds a culture of civic engagement and accountability in communities that previously had no channel to communicate with the administration.</p>
+</section></section></div>
+
+<script>
+  function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      }
+    }
+  }
+  window.addEventListener("scroll", reveal);
+  reveal();
+</script>
 
 
-</section>
-</section>
+
+
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

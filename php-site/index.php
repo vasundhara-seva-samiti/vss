@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5f65087b09968f8d9f7624042aeae734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-b8be95c0ef530753e2d5ddcf586a4a09.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -91,15 +91,95 @@ ul.task-list li input[type="checkbox"] {
           '<a href="https://youtube.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
           '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
           '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
-          '<a href="https://twitter.com" target="_blank" rel="noopener" class="vss-topbar-icon" aria-label="Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
         '</div>' +
       '</div>';
     header.prepend(bar);
+
+    const navFooter = document.querySelector("footer.footer .nav-footer");
+    if (navFooter && !navFooter.classList.contains("vss-custom-footer")) {
+      // Derive extension from existing navbar links so "/" on Hostinger still resolves to .php pages.
+      let pageExt = ".php";
+      const extHintLink = document.querySelector('header a[href$=".php"], header a[href$=".php"], .navbar a[href$=".php"], .navbar a[href$=".php"]');
+      const extHintHref = extHintLink ? (extHintLink.getAttribute("href") || "") : "";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      if (extHintHref.includes(".php")) pageExt = ".php";
+      const pageLink = function (slug) {
+        return "./" + slug + pageExt;
+      };
+
+      navFooter.classList.add("vss-custom-footer");
+      navFooter.innerHTML =
+        '<div class="vss-footer-shell">' +
+          '<div class="vss-footer-grid">' +
+            '<div class="vss-footer-col vss-footer-subscribe">' +
+              '<h3>Subscribe & Social</h3>' +
+              '<label class="visually-hidden" for="vss-footer-email">Email address</label>' +
+              '<input id="vss-footer-email" type="email" class="vss-footer-input" placeholder="Email Address" />' +
+              '<button type="button" class="vss-footer-btn">SUBSCRIBE</button>' +
+              '<div class="vss-footer-social">' +
+                '<a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter"><i class="bi bi-twitter" aria-hidden="true"></i></a>' +
+                '<a href="https://www.linkedin.com/company/vasundhara-sewa-samiti/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin" aria-hidden="true"></i></a>' +
+                '<a href="https://www.instagram.com/invites/contact/?igsh=10hj0dse9xje5&utm_content=zcbfie2" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram" aria-hidden="true"></i></a>' +
+                '<a href="https://www.facebook.com/share/1J129dcf94/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook" aria-hidden="true"></i></a>' +
+                '<a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube" aria-hidden="true"></i></a>' +
+              '</div>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Work Areas</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("focusareas") + '">Focus Areas Overview</a></li>' +
+                '<li><a href="' + pageLink("basicright") + '">Rights Based Work</a></li>' +
+                '<li><a href="' + pageLink("livelihood") + '">Rural Livelihoods</a></li>' +
+                '<li><a href="' + pageLink("disaster") + '">Disaster Management</a></li>' +
+                '<li><a href="' + pageLink("capacity") + '">Capacity Building</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>About Us</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("about") + '">Overview</a></li>' +
+                '<li><a href="' + pageLink("team") + '">Our People</a></li>' +
+                '<li><a href="' + pageLink("board") + '">History & Board</a></li>' +
+              '</ul>' +
+            '</div>' +
+            '<div class="vss-footer-col">' +
+              '<h3>Others</h3>' +
+              '<ul>' +
+                '<li><a href="' + pageLink("career") + '">Careers</a></li>' +
+                '<li><a href="' + pageLink("media-coverage") + '">Resources</a></li>' +
+                '<li><a href="' + pageLink("blog") + '">Impact Stories</a></li>' +
+                '<li><a href="' + pageLink("contact") + '">Contact Us</a></li>' +
+              '</ul>' +
+            '</div>' +
+          '</div>' +
+          '<div class="vss-footer-bottom">Copyright &copy; 2026 Vasundhara Sewa Samiti</div>' +
+        '</div>';
+    }
+
+    if (!document.querySelector(".vss-back-to-top")) {
+      const backTopBtn = document.createElement("button");
+      backTopBtn.type = "button";
+      backTopBtn.className = "vss-back-to-top";
+      backTopBtn.setAttribute("aria-label", "Back to top");
+      backTopBtn.innerHTML = '<i class="bi bi-arrow-up" aria-hidden="true"></i>';
+      document.body.appendChild(backTopBtn);
+
+      const toggleBackTop = function () {
+        backTopBtn.classList.toggle("is-visible", window.scrollY > 260);
+      };
+
+      backTopBtn.addEventListener("click", function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", toggleBackTop, { passive: true });
+      toggleBackTop();
+    }
   });
 </script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles-20260320.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -138,6 +218,10 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">Mission and Vision</span></a>
   </li>  
         <li>
+    <a class="dropdown-item" href="./secretary-desk.php">
+ <span class="dropdown-text">Secretary Desk</span></a>
+  </li>  
+        <li>
     <a class="dropdown-item" href="./board.php#board">
  <span class="dropdown-text">Board</span></a>
   </li>  
@@ -156,17 +240,17 @@ ul.task-list li input[type="checkbox"] {
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-focus-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
- <span class="menu-text">Focus Areas</span>
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-work-areas" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Work Areas</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-focus-areas">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-work-areas">    
         <li>
     <a class="dropdown-item" href="./focusareas.php">
  <span class="dropdown-text">Focus Areas Overview</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./basicright.php">
- <span class="dropdown-text">Basic Rights</span></a>
+ <span class="dropdown-text">Right Based</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./livelihood.php">
@@ -228,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div id="vssCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="false">
+<div id="vssCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="4500" data-bs-pause="false" data-bs-wrap="true" data-bs-touch="true">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="0" class="active"></button>
     <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="1"></button>
@@ -236,6 +320,7 @@ ul.task-list li input[type="checkbox"] {
     <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="3"></button>
     <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="4"></button>
     <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="5"></button>
+    <button type="button" data-bs-target="#vssCarousel" data-bs-slide-to="6"></button>
   </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -270,7 +355,10 @@ ul.task-list li input[type="checkbox"] {
       <img src="images/h1.jpeg" alt="Program photo 1">
     </div>
     <div class="carousel-item">
-      <img src="images/h2.jpeg" alt="Program photo 2">
+      <img src="images/tal1.jpeg" alt="Program photo 2">
+    </div>
+    <div class="carousel-item">
+      <img src="images/ta1.jpeg" alt="Program photo 3">
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#vssCarousel" data-bs-slide="prev">
@@ -281,17 +369,65 @@ ul.task-list li input[type="checkbox"] {
   </button>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const heroCarouselEl = document.getElementById("vssCarousel");
+    if (!heroCarouselEl || !window.bootstrap) return;
+
+    function restartHeroSlideAnimations() {
+      heroCarouselEl.querySelectorAll(".carousel-item img, .carousel-caption h2, .carousel-caption p").forEach(function (el) {
+        el.classList.remove("vss-zoom-animating", "vss-caption-animating");
+      });
+
+      const activeItem = heroCarouselEl.querySelector(".carousel-item.active");
+      if (!activeItem) return;
+
+      const activeImg = activeItem.querySelector("img");
+      const activeHeading = activeItem.querySelector(".carousel-caption h2");
+      const activeText = activeItem.querySelector(".carousel-caption p");
+
+      if (activeImg) {
+        void activeImg.offsetWidth;
+        activeImg.classList.add("vss-zoom-animating");
+      }
+      if (activeHeading) {
+        void activeHeading.offsetWidth;
+        activeHeading.classList.add("vss-caption-animating");
+      }
+      if (activeText) {
+        void activeText.offsetWidth;
+        activeText.classList.add("vss-caption-animating");
+      }
+    }
+
+    const heroCarousel = bootstrap.Carousel.getOrCreateInstance(heroCarouselEl, {
+      interval: 4500,
+      pause: false,
+      wrap: true,
+      ride: "carousel",
+      touch: true
+    });
+
+    restartHeroSlideAnimations();
+    heroCarousel.cycle();
+    heroCarouselEl.addEventListener("slid.bs.carousel", function () {
+      restartHeroSlideAnimations();
+      heroCarousel.cycle();
+    });
+
+    window.addEventListener("orientationchange", function () {
+      window.setTimeout(restartHeroSlideAnimations, 120);
+    });
+  });
+</script>
+
 <div class="about-home">
   <h2 class="section-title anchored">Vasundhara Sewa Samiti</h2>
   <div class="section-divider"></div>
   
-  <p>Vasundhara Sewa Samiti is a non-governmental, non-profit organization registered under the Rajasthan State Cooperative/Societies Act, 1958. The organization works in the rural and drought-prone regions of Balotra district, Rajasthan, focusing on the development and empowerment of marginalized communities.</p>
+  <p>Vasundhara Sewa Samiti (VSS), Kalyanpur is a voluntary non-profit organization working in the remote desert region of western Rajasthan, particularly in the Thar Desert areas of Balotra district (formerly Barmer) near the India–Pakistan border. Since 1996–97, the organization has been working with SC, ST, women, and other marginalized communities to improve their living conditions.</p>
   
-  <p>Our mission is to strengthen the capacities of women, youth, children, scheduled castes, and economically weaker sections so that they can access their rights, resources, and opportunities for a dignified life. We believe that sustainable development is possible when communities themselves actively participate in decision-making and development processes.</p>
-  
-  <p>The organization implements community-based development initiatives in the areas of sustainable livelihoods, education, water conservation and water resource management, disaster risk reduction, institutional development, environmental awareness, and access to government welfare schemes. Through participatory and rights-based approaches, we work closely with local communities, government institutions, and civil society partners to ensure inclusive and sustainable development.</p>
-  
-  <p><span class="org-name-highlight">Vasundhara Sewa Samiti</span> is committed to improving the quality of life of rural communities by promoting sustainable livelihoods, water security, social justice, and community empowerment. By combining traditional community knowledge with practical development strategies, the organization contributes towards long-term rural development and aligns its work with national priorities and the Sustainable Development Goals (SDGs).</p>
+  <p>VSS focuses on community-led development, sustainable livelihoods, conservation of traditional water resources, health and environmental awareness, and promotion of fundamental rights. Through grassroots efforts, the organization also supports women’s livelihoods, climate resilience, and community participation in Panchayati Raj systems, helping rural communities become more self-reliant and resilient.</p>
   
   <div class="about-home-actions">
     <a href="about.php" class="btn-vss">Read More About Us</a>
@@ -563,7 +699,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="impact-story-track-wrap">
       <div class="impact-story-track" data-impact-track="">
         <article class="impact-story-card">
-          <img src="images/slide1.jpg" alt="Community Access">
+          <img src="images/soc.jpg" alt="Community Access">
           <div class="impact-story-body">
             <h3 class="anchored">Increased Access to Public Services</h3>
             <p>Dalit communities gained greater access to public services and public spaces, significantly reducing discrimination and promoting equality in daily life.</p>
@@ -571,7 +707,7 @@ ul.task-list li input[type="checkbox"] {
         </article>
 
         <article class="impact-story-card">
-          <img src="images/h1.jpeg" alt="Panchayati Raj">
+          <img src="images/off.jpeg" alt="Panchayati Raj">
           <div class="impact-story-body">
             <h3 class="anchored">210 Elected Community Representatives</h3>
             <p>210 community members were elected as representatives in the three-tier Panchayati Raj system, strengthening democratic participation at the grassroots level.</p>
@@ -587,7 +723,7 @@ ul.task-list li input[type="checkbox"] {
         </article>
 
         <article class="impact-story-card">
-          <img src="images/h2.jpeg" alt="Women Empowerment">
+          <img src="images/wom.jpeg" alt="Women Empowerment">
           <div class="impact-story-body">
             <h3 class="anchored">Women's Participation &amp; Confidence</h3>
             <p>Increased women's participation and growing confidence in community organizations has created lasting change in how women engage with civic and social life.</p>
@@ -595,7 +731,7 @@ ul.task-list li input[type="checkbox"] {
         </article>
 
         <article class="impact-story-card">
-          <img src="images/dm.jpg" alt="Government Participation">
+          <img src="images/of.jpeg" alt="Government Participation">
           <div class="impact-story-body">
             <h3 class="anchored">Participation in Government Institutions</h3>
             <p>Improved participation of marginalized communities in government institutions and committees, ensuring their voices shape policy and local governance decisions.</p>
@@ -910,17 +1046,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="achv-track" data-achv-track="">
         <article class="achv-card">
           <div class="achv-img-wrap">
-            <img src="" alt="Agricultural Land Freed" data-achv-img="0" style="display:none;">
-            <div class="achv-img-placeholder" data-achv-ph="0">
-              <span class="ph-icon">🖼️</span>
-              <span>Click to add image</span>
-              <input class="achv-file-input" type="file" accept="image/*" data-achv-input="0">
-            </div>
+            <img src="images/bigha.jpeg" alt="Agricultural Land Freed" data-achv-img="0">
             <div class="achv-img-badge">
               <span class="achv-counter" data-target="1200">0</span>
               <span class="unit">Bigha</span>
             </div>
-            <button class="achv-change-btn" type="button" data-achv-open="0">📁 Change</button>
           </div>
           <div class="achv-body">
             <h3 class="anchored">Agricultural Land Freed from Encroachment</h3>
@@ -930,37 +1060,25 @@ ul.task-list li input[type="checkbox"] {
 
         <article class="achv-card">
           <div class="achv-img-wrap">
-            <img src="" alt="Residential Land Titles" data-achv-img="1" style="display:none;">
-            <div class="achv-img-placeholder" data-achv-ph="1">
-              <span class="ph-icon">🖼️</span>
-              <span>Click to add image</span>
-              <input class="achv-file-input" type="file" accept="image/*" data-achv-input="1">
-            </div>
+            <img src="images/vulne.jpeg" alt="Residential Land Titles" data-achv-img="1">
             <div class="achv-img-badge">
-              <span class="achv-counter" data-target="2200">0</span>
+              <span class="achv-counter" data-target="200">0</span>
               <span class="unit">Families</span>
             </div>
-            <button class="achv-change-btn" type="button" data-achv-open="1">📁 Change</button>
           </div>
           <div class="achv-body">
             <h3 class="anchored">Residential Land Titles Secured</h3>
-            <p>2,200 marginalised families were assisted in obtaining residential land titles, ensuring their right to a secure home.</p>
+            <p>200 marginalised families were assisted in obtaining residential land titles, ensuring their right to a secure home.</p>
           </div>
         </article>
 
         <article class="achv-card">
           <div class="achv-img-wrap">
-            <img src="" alt="Justice under Atrocities Act" data-achv-img="2" style="display:none;">
-            <div class="achv-img-placeholder" data-achv-ph="2">
-              <span class="ph-icon">🖼️</span>
-              <span>Click to add image</span>
-              <input class="achv-file-input" type="file" accept="image/*" data-achv-input="2">
-            </div>
+            <img src="images/any.jpg" alt="Justice under Atrocities Act" data-achv-img="2">
             <div class="achv-img-badge">
               <span class="achv-counter" data-target="1703">0</span>
               <span class="unit">People</span>
             </div>
-            <button class="achv-change-btn" type="button" data-achv-open="2">📁 Change</button>
           </div>
           <div class="achv-body">
             <h3 class="anchored">Justice Under Atrocities Prevention Act</h3>
@@ -970,17 +1088,11 @@ ul.task-list li input[type="checkbox"] {
 
         <article class="achv-card">
           <div class="achv-img-wrap">
-            <img src="" alt="NREGA Work Applications" data-achv-img="3" style="display:none;">
-            <div class="achv-img-placeholder" data-achv-ph="3">
-              <span class="ph-icon">🖼️</span>
-              <span>Click to add image</span>
-              <input class="achv-file-input" type="file" accept="image/*" data-achv-input="3">
-            </div>
+            <img src="images/narega.jpeg" alt="NREGA Work Applications" data-achv-img="3">
             <div class="achv-img-badge">
               <span class="achv-counter" data-target="5000">0</span>
               <span class="unit">People</span>
             </div>
-            <button class="achv-change-btn" type="button" data-achv-open="3">📁 Change</button>
           </div>
           <div class="achv-body">
             <h3 class="anchored">NREGA Work Applications Filed</h3>
@@ -990,17 +1102,11 @@ ul.task-list li input[type="checkbox"] {
 
         <article class="achv-card">
           <div class="achv-img-wrap">
-            <img src="" alt="Trained Community Volunteers" data-achv-img="4" style="display:none;">
-            <div class="achv-img-placeholder" data-achv-ph="4">
-              <span class="ph-icon">🖼️</span>
-              <span>Click to add image</span>
-              <input class="achv-file-input" type="file" accept="image/*" data-achv-input="4">
-            </div>
+            <img src="images/cap.jpeg" alt="Trained Community Volunteers" data-achv-img="4">
             <div class="achv-img-badge">
               <span class="achv-counter" data-target="427">0</span>
               <span class="unit">Volunteers</span>
             </div>
-            <button class="achv-change-btn" type="button" data-achv-open="4">📁 Change</button>
           </div>
           <div class="achv-body">
             <h3 class="anchored">Trained Community Volunteers</h3>

@@ -1,0 +1,23 @@
+{
+    "name": "vasundhara-sewa-samiti/website",
+    "description": "Website for Vasundhara Sewa Samiti NGO",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vasundhara Sewa Samiti",
+            "email": "contact@vasundharasewasamiti.org"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vasundhara\\": "src/"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    }
+}
